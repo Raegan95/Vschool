@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #eee;
+    overscroll-behavior: none;
+    min-height: calc(100vh - 110px);
+    display: grid;
+}
+
+body {
+    display: grid;
+    grid: auto 1fr / auto;
+    font-family: sans-serif;
+}
+
+header {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header>h1 {
+    font-family: monospace;
+    font-weight: 400;
+    font-size: 3em;
+}
+
+.todo-form {
+    width: 100%;
+    padding: 10px 5px;
+    position: fixed;
+    bottom: 0;
+    display: grid;
+    z-index: 1;
+}
+
+.todo-form>input {
+    height: 60px;
+    max-width: 425px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.todo-list {
+    width: 100%;
+    display: grid;
+    align-content: center;
+    gap: 10px;
+    padding: 10px 5px;
+    position: sticky;
+    top: 0;
+}
+
+.todo-list>li {
+    list-style-type: none;
+    font-size: 20px;
+    background-color: rgba(0, 50, 50, 0.3);
+    border-radius: 10px;
+    color: #eee;
+    display: grid;
+    align-items: center;
+    padding: 10px 15px;
+    position: relative;
+    transition: background-color 150ms ease-in-out;
+}
+
+.todo-list>li>div:first-of-type {
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.button-container {
+    display: grid;
+    grid-auto-flow: column;
+    overflow: hidden;
+    height: 0;
+    transition: height 150ms ease-in-out;
+}
+
+.button-container>button {
+    border: none;
+    background-color: transparent;
+    color: #ddd;
+    height: 35px;
+    transition: color 125ms ease-out;
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.button-container>button:first-of-type {
+    border-right: 1px solid #ddd;
+}
+
+@media only screen and (min-width: 425px) {
+    body {
+        grid: auto auto 1fr / auto;
+    }
+
+    .todo-form,
+    .todo-list {
+        position: static;
+        align-content: start;
+        justify-content: center;
+    }
+
+    .todo-list {
+        padding-top: 25px;
+    }
+
+    .todo-form>input,
+    .todo-list>li {
+        width: 425px;
+    }
+}

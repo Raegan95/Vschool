@@ -1,0 +1,8 @@
+const readlineSync = require('readline-sync');
+
+const numbers = [12, 2, 8, 99, 60, 53]
+
+function sortNumbers(numbers) {
+.sort(function(a, b){return a-b});
+
+}
